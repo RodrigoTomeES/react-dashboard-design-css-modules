@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Text, useTheme } from '@geist-ui/react';
+import { Avatar, useTheme } from '@geist-ui/react';
 
 interface Props {
   username: string;
@@ -17,21 +17,21 @@ const ActivityEvent: React.FC<ActivityEventProps> = ({ username, avatar, created
     <>
       <div className="activity-event">
         <Avatar className="activity-event__avatar" src={avatar} alt={`${username} Avatar`} />
-        <Text className="activity-event__message">{children}</Text>
-        <Text className="activity-event__created-at">{createdAt}</Text>
+        <p className="activity-event__message">{children}</p>
+        <p className="activity-event__created-at">{createdAt}</p>
       </div>
       <style jsx>{`
         .activity-event {
           display: flex;
           align-items: center;
           font-size: 0.875rem;
-          padding: ${theme.layout.gapHalf} 0;
+          padding: 8pt 0;
           border-bottom: 1px solid ${theme.palette.border};
         }
         .activity-event :global(.activity-event__avatar) {
           width: 2rem;
           height: 2rem;
-          margin-right: ${theme.layout.gapHalf};
+          margin-right: 8pt;
         }
         .activity-event :global(.activity-event__message) {
           flex: 1;
@@ -40,7 +40,7 @@ const ActivityEvent: React.FC<ActivityEventProps> = ({ username, avatar, created
         .activity-event :global(.activity-event__created-at) {
           color: ${theme.palette.accents_4};
           margin: 0 0 0 auto;
-          padding-left: ${theme.layout.gapHalf};
+          padding-left: 8pt;
           text-align: right;
         }
       `}</style>

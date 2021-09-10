@@ -1,6 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Avatar, Button, Tag, Text, Link, useTheme } from '@geist-ui/react';
+import { Avatar, Button, Tag, Link, useTheme } from '@geist-ui/react';
 import * as Icons from 'react-feather';
 
 interface Props {
@@ -19,9 +19,9 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
           <Avatar alt="Your Avatar" className="heading__user-avatar" src="/assets/avatar.png" />
           <div className="heading__name">
             <div className="heading__title">
-              <Text h2 className="headding__user-name">
+              <h2 className="headding__user-name">
                 {user.name}
-              </Text>
+              </h2>
               <Tag className="headding__user-role">{user.role}</Tag>
 
               <div className="heading__actions">
@@ -35,7 +35,7 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
 
             {user.github && (
               <div className="heading__integration">
-                <Text className="heading__integration-title">Git Integrations</Text>
+                <p className="heading__integration-title">Git Integrations</p>
                 <Link href={`https://github.com/${user.github}`} target="_blank" rel="noopener" underline>
                   <div className="heading__integration-inner">
                     <Icons.GitHub size={16} aria-label="Github" />
@@ -54,16 +54,16 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
         .heading {
           display: flex;
           flex-direction: row;
-          width: ${theme.layout.pageWidthWithMargin};
+          width: 782pt;
           max-width: 100%;
           margin: 0 auto;
-          padding: calc(${theme.layout.gap} * 2) ${theme.layout.pageMargin} calc(${theme.layout.gap} * 4);
+          padding: calc(16pt * 2) 16pt calc(16pt * 4);
           box-sizing: border-box;
         }
         .heading :global(.heading__user-avatar) {
           height: 100px;
           width: 100px;
-          margin-right: ${theme.layout.gap};
+          margin-right: 16pt;
         }
         .heading__title {
           display: flex;
@@ -89,7 +89,7 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
           font-size: 0.75rem;
           font-weight: 500;
           text-transform: uppercase;
-          margin-left: ${theme.layout.gapQuarter};
+          margin-left: 4pt;
         }
         .heading__actions {
           margin-left: auto;
@@ -107,10 +107,10 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
           align-items: center;
         }
         .heading__integration-inner :global(svg) {
-          margin-right: ${theme.layout.gapQuarter};
+          margin-right: 4pt;
         }
 
-        @media (max-width: ${theme.breakpoints.xs.max}) {
+        @media (max-width: 650px) {
           .heading :global(.heading__user-avatar) {
             width: 80px !important;
             height: 80px !important;

@@ -1,10 +1,9 @@
 import React from 'react';
-import { Text } from '@geist-ui/react';
 
 const Page = () => (
-  <Text h2 style={{ margin: '8rem 0', textAlign: 'center' }}>
+  <h2 style={{ margin: '8rem 0', textAlign: 'center' }}>
     Activity
-  </Text>
+  </h2>
 );
 
 export default Page;

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Button, Grid, Input, useTheme } from '@geist-ui/react';
-import SearchIcon from '@geist-ui/react-icons/search';
-import CreateTeamIcon from '@geist-ui/react-icons/userPlus';
 import ProjectCard from '@/components/project-card';
+import * as Icons from 'react-feather';
 
 const Page = () => {
   const theme = useTheme();
@@ -15,13 +14,13 @@ const Page = () => {
             <Input
               scale={1.25}
               width="100%"
-              icon={<SearchIcon color={theme.palette.accents_5} />}
+              icon={<Icons.Search size={16} aria-label="Search" color={theme.palette.accents_5} />}
               placeholder="Search..."
             />
             <Button auto type="secondary" marginLeft={1}>
               New Project
             </Button>
-            <Button iconRight={<CreateTeamIcon />} marginLeft={1} px={0} width="48px" />
+            <Button iconRight={<Icons.UserPlus size={16} aria-label="Add User" />} marginLeft={1} px={0} width="48px" />
           </div>
           <Grid.Container gap={2} marginTop={1} justify="flex-start">
             <Grid xs={24} sm={12} md={8}>
@@ -86,10 +85,10 @@ const Page = () => {
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
-          width: ${theme.layout.pageWidthWithMargin};
+          width: 782pt;
           max-width: 100%;
           margin: 0 auto;
-          padding: calc(${theme.layout.unit} * 2) ${theme.layout.pageMargin};
+          padding: calc(16px * 2) 16pt;
           box-sizing: border-box;
         }
         .actions-stack {

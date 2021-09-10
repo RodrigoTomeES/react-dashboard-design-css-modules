@@ -62,20 +62,20 @@ const Page = () => {
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
-          width: ${theme.layout.pageWidthWithMargin};
+          width: 782pt;
           max-width: 100%;
           margin: 0 auto;
-          padding: 0 ${theme.layout.pageMargin};
+          padding: 0 16pt;
           transform: translateY(-35px);
           box-sizing: border-box;
         }
         .projects {
           width: 540px;
           max-width: 100%;
-          margin-right: calc(4 * ${theme.layout.gap});
+          margin-right: calc(4 * 16pt);
         }
         .projects :global(.project__wrapper):not(:last-of-type) {
-          margin-bottom: calc(1.5 * ${theme.layout.gap});
+          margin-bottom: calc(1.5 * 16pt);
         }
         .recent-activity {
           flex: 1;
@@ -83,15 +83,15 @@ const Page = () => {
         .recent-activity :global(.recent-activity__title) {
           font-size: 0.875rem;
           font-weight: 700;
-          margin: 0 0 calc(3 * ${theme.layout.gapHalf});
+          margin: 0 0 calc(3 * 8pt);
         }
         .page__content :global(.view-all) {
           font-size: 0.875rem;
           font-weight: 700;
-          margin: calc(1.5 * ${theme.layout.gap}) 0;
+          margin: calc(1.5 * 16pt) 0;
           text-align: center;
         }
-        @media (max-width: ${theme.breakpoints.sm.max}) {
+        @media (max-width: 900px) {
           .page__content {
             flex-direction: column;
             justify-content: flex-start;

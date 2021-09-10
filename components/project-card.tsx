@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Button, Text, Link, Card, Dot, Tag, useTheme } from '@geist-ui/react';
+import { Avatar, Card, useTheme } from '@geist-ui/react';
 import GitHubIcon from '@/components/icons/github';
 
 interface Props {
@@ -31,24 +31,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectId, productionHostname
               className="project-icon"
             />
             <div className="project-title__content">
-              <Text margin={0} style={{ fontWeight: 500, lineHeight: '1.5rem' }}>
+              <p style={{ fontWeight: 500, lineHeight: '1.5rem', margin: 0 }}>
                 {projectId}
-              </Text>
-              <Text margin={0} font="0.875rem" style={{ color: theme.palette.accents_6, lineHeight: '1.25rem' }}>
+              </p>
+              <p style={{ color: theme.palette.accents_6, lineHeight: '1.25rem', margin: 0, fontSize: '0.875rem' }}>
                 {productionHostname || `${projectId}.vercel.app`}
-              </Text>
+              </p>
             </div>
           </div>
           {git ? (
             <div className="project-git-commit">
-              <Text margin={0} style={{ color: theme.palette.accents_6, fontWeight: 500 }}>
+              <p style={{ color: theme.palette.accents_6, fontWeight: 500, margin: 0 }}>
                 {git?.commitMessage}
-              </Text>
+              </p>
             </div>
           ) : (
             <div className="project-git-commit-error">No Git Repository connected.</div>
           )}
-          <Text marginBottom={0} font="0.875rem" style={{ color: theme.palette.accents_5 }}>
+          <p style={{ color: theme.palette.accents_5, marginBottom: 0, fontSize: '0.875rem' }}>
             {updatedAt} ago
             {git && (
               <>
@@ -59,11 +59,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectId, productionHostname
                   height="1rem"
                   width="1rem"
                   strokeWidth={2}
-                  style={{ verticalAlign: 'middle', marginLeft: `calc(${theme.layout.unit} * 0.375)` }}
+                  style={{ verticalAlign: 'middle', marginLeft: `calc(16px * 0.375)` }}
                 />
               </>
             )}
-          </Text>
+          </p>
         </Card>
       </div>
       <style jsx>{`
@@ -98,8 +98,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectId, productionHostname
           font-size: 0.875rem;
         }
         .project-git-commit-error {
-          padding: 0 ${theme.layout.unit};
-          border-radius: ${theme.layout.radius};
+          padding: 0 16px;
+          border-radius: 5px;
           background: ${theme.palette.accents_1};
           border: 1px solid ${theme.palette.border};
           color: ${theme.palette.accents_5};

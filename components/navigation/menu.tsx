@@ -36,10 +36,10 @@ const Menu: React.FC = () => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          width: ${theme.layout.pageWidthWithMargin};
+          width: 782pt;
           max-width: 100%;
           margin: 0 auto;
-          padding: 0 ${theme.layout.pageMargin};
+          padding: 0 16pt;
           background-color: ${theme.palette.background};
           font-size: 16px;
           height: 54px;
@@ -62,7 +62,7 @@ const Menu: React.FC = () => {
           width: 2.25rem;
           height: 2.25rem;
           padding: 0;
-          margin: 0 ${theme.layout.gapHalf};
+          margin: 0 8pt;
         }
         .user-settings__button {
           border: none;

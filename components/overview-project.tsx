@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, Link, Card, Dot, Tag, useTheme } from '@geist-ui/react';
+import { Button, Link, Card, Dot, Tag, useTheme } from '@geist-ui/react';
 import * as Icons from 'react-feather';
 
 interface Props {
@@ -18,7 +18,7 @@ const OverviewProject: React.FC<OverviewProjectProps> = ({ projectId, createdAt,
       <div className="project__wrapper">
         <Card className="project__card" shadow>
           <div className="project__title">
-            <Text h3>{projectId}</Text>
+            <h3>{projectId}</h3>
             <Button className="project__visit-button" height={0.8} auto>
               Visit
             </Button>
@@ -41,7 +41,7 @@ const OverviewProject: React.FC<OverviewProjectProps> = ({ projectId, createdAt,
           </div>
           <Card.Footer className="project__footer">
             <Icons.GitHub size={14} />
-            <Text className="project__repo">{repo}</Text>
+            <p className="project__repo">{repo}</p>
           </Card.Footer>
         </Card>
       </div>
@@ -54,7 +54,7 @@ const OverviewProject: React.FC<OverviewProjectProps> = ({ projectId, createdAt,
           flex-direction: row;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: ${theme.layout.gap};
+          margin-bottom: 16pt;
         }
         .project__title :global(h3) {
           margin: 0;
@@ -63,7 +63,7 @@ const OverviewProject: React.FC<OverviewProjectProps> = ({ projectId, createdAt,
           display: flex;
           flex-direction: row;
           align-items: center;
-          margin-top: ${theme.layout.gapQuarter};
+          margin-top: 4pt;
         }
         .project__wrapper :global(.project__deployment) :global(.icon) {
           background-color: #50e3c2;
@@ -92,13 +92,13 @@ const OverviewProject: React.FC<OverviewProjectProps> = ({ projectId, createdAt,
           height: unset;
           font-size: 0.75rem;
           font-weight: 500;
-          margin-left: ${theme.layout.gapHalf};
+          margin-left: 8pt;
         }
         .project__wrapper :global(.project__created-at) {
           color: ${theme.palette.accents_4};
           font-size: 0.875rem;
           text-align: right;
-          margin: 0 0 0 ${theme.layout.gapHalf};
+          margin: 0 0 0 8pt;
         }
         .project__wrapper :global(.project__footer) {
           display: flex;
@@ -108,9 +108,9 @@ const OverviewProject: React.FC<OverviewProjectProps> = ({ projectId, createdAt,
         .project__wrapper :global(.project__repo) {
           font-size: 0.875rem;
           font-weight: 500;
-          margin-left: ${theme.layout.gapQuarter};
+          margin-left: 4pt;
         }
-        @media (max-width: ${theme.breakpoints.xs.max}) {
+        @media (max-width: 650px) {
           .project__wrapper :global(.project__visit-button) {
             display: none;
           }

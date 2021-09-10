@@ -53,10 +53,10 @@ const Submenu: React.FC = () => {
         }
         .submenu__inner {
           display: flex;
-          width: ${theme.layout.pageWidthWithMargin};
+          width: 782pt;
           max-width: 100%;
           margin: 0 auto;
-          padding: 0 ${theme.layout.pageMargin};
+          padding: 0 16pt;
           height: 48px;
           box-sizing: border-box;
           overflow-y: hidden;

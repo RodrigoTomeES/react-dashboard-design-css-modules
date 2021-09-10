@@ -10,7 +10,7 @@ const UserSettings: React.FC = () => (
       <Link href="#">Teams</Link>
     </Popover.Item>
     <Popover.Item>
-      <Link href="https://github.com/ofekashery/react-dashboard-design">GitHub</Link>
+      <Link href="https://github.com/RodrigoTomeES/react-dashboard-design-css-modules/">GitHub</Link>
     </Popover.Item>
     <Popover.Item line />
     <Popover.Item>
