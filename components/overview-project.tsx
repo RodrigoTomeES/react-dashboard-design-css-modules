@@ -1,12 +1,16 @@
 import React from 'react';
-import { Button, Link, Card, Dot, Tag, useTheme } from '@geist-ui/react';
+import { useTheme } from '@geist-ui/react';
 import * as Icons from 'react-feather';
+
+import Dot from '@/components/dot';
+import Button from '@/components/button/button';
+import Card from '@/components/card/index';
 
 interface Props {
   projectId: string;
   createdAt: string;
   repo: string;
-}
+};
 
 export type OverviewProjectProps = Props;
 
@@ -19,23 +23,23 @@ const OverviewProject: React.FC<OverviewProjectProps> = ({ projectId, createdAt,
         <Card className="project__card" shadow>
           <div className="project__title">
             <h3>{projectId}</h3>
-            <Button className="project__visit-button" height={0.8} auto>
+            <Button className="project__visit-button" auto>
               Visit
             </Button>
           </div>
           <div>
-            <Dot className="project__deployment" type="success">
-              <Link href="#">{projectId}.vercel.app</Link>
-              <Tag className="project__environment-tag" type="secondary">
+            <Dot className="project__deployment">
+              <a href="#">{projectId}.vercel.app</a>
+              <span className="project__environment-tag">
                 Production
-              </Tag>
+              </span>
               <span className="project__created-at">{createdAt}</span>
             </Dot>
-            <Dot className="project__deployment" type="success">
-              <Link href="#">{projectId}-oa71gi2.vercel.app</Link>
-              <Tag className="project__environment-tag" type="secondary">
+            <Dot className="project__deployment">
+              <a href="#">{projectId}-oa71gi2.vercel.app</a>
+              <span className="project__environment-tag">
                 Latest
-              </Tag>
+              </span>
               <span className="project__created-at">{createdAt}</span>
             </Dot>
           </div>
@@ -46,6 +50,9 @@ const OverviewProject: React.FC<OverviewProjectProps> = ({ projectId, createdAt,
         </Card>
       </div>
       <style jsx>{`
+        a {
+          color: inherit;
+        }
         .project__wrapper :global(.project__card) {
           padding: 0 !important;
         }
@@ -86,7 +93,7 @@ const OverviewProject: React.FC<OverviewProjectProps> = ({ projectId, createdAt,
         .project__wrapper :global(.project__environment-tag) {
           color: ${theme.palette.foreground};
           background: ${theme.palette.accents_1};
-          border-color: ${theme.palette.accents_2};
+          border: 1px solid ${theme.palette.accents_2};
           border-radius: 1rem;
           padding: 2px 6px;
           height: unset;
@@ -109,6 +116,10 @@ const OverviewProject: React.FC<OverviewProjectProps> = ({ projectId, createdAt,
           font-size: 0.875rem;
           font-weight: 500;
           margin-left: 4pt;
+        }
+        .project__wrapper :global(.project__visit-button) {
+          height: calc(2 * 16px);
+          line-height: calc(2 * 16px);
         }
         @media (max-width: 650px) {
           .project__wrapper :global(.project__visit-button) {

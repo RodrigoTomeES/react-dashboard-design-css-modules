@@ -1,5 +1,7 @@
 import React from 'react';
-import { Avatar, useTheme } from '@geist-ui/react';
+import { useTheme } from '@geist-ui/react';
+
+import Avatar from '@/components/avatar';
 
 interface Props {
   username: string;

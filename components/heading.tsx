@@ -1,11 +1,14 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Avatar, Button, Tag, Link, useTheme } from '@geist-ui/react';
+import { useTheme } from '@geist-ui/react';
 import * as Icons from 'react-feather';
+
+import Avatar from '@/components/avatar';
+import Button from '@/components/button/button';
 
 interface Props {
   user: { name: string; role: string; github?: string };
-}
+};
 
 export type HeadingProps = Props;
 
@@ -22,7 +25,7 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
               <h2 className="headding__user-name">
                 {user.name}
               </h2>
-              <Tag className="headding__user-role">{user.role}</Tag>
+              <span className="headding__user-role">{user.role}</span>
 
               <div className="heading__actions">
                 <NextLink href="/projects" passHref>
@@ -36,12 +39,12 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
             {user.github && (
               <div className="heading__integration">
                 <p className="heading__integration-title">Git Integrations</p>
-                <Link href={`https://github.com/${user.github}`} target="_blank" rel="noopener" underline>
+                <a href={`https://github.com/${user.github}`} target="_blank" rel="noopener">
                   <div className="heading__integration-inner">
                     <Icons.GitHub size={16} aria-label="Github" />
                     <span>{user.github}</span>
                   </div>
-                </Link>
+                </a>
               </div>
             )}
           </div>
@@ -82,7 +85,7 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
         }
         .heading__name :global(.headding__user-role) {
           background: ${theme.palette.accents_1};
-          border-color: ${theme.palette.accents_2};
+          border: 1px solid ${theme.palette.accents_2};
           border-radius: 1rem;
           padding: 0.175rem 0.5rem;
           height: unset;
@@ -93,6 +96,24 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
         }
         .heading__actions {
           margin-left: auto;
+        }
+        .heading__integration a {
+          display: inline-flex;
+          align-items: baseline;
+          line-height: inherit;
+          color: inherit;
+          text-decoration: none;
+          border-radius: 0;
+          transition: color 200ms ease 0ms;
+          font-size: inherit;
+          height: auto;
+          margin: 0;
+          padding: 0;
+        }
+        .heading__integration a:hover {
+          text-decoration: underline;
+          background-color: unset;
+          color: inherit;
         }
         .heading__integration :global(.heading__integration-title) {
           color: ${theme.palette.accents_5} !important;

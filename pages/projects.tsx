@@ -1,7 +1,9 @@
 import React from 'react';
-import { Button, Grid, Input, useTheme } from '@geist-ui/react';
-import ProjectCard from '@/components/project-card';
+import { Grid, Input, useTheme } from '@geist-ui/react';
 import * as Icons from 'react-feather';
+
+import ProjectCard from '@/components/project-card';
+import Button from '@/components/button/button';
 
 const Page = () => {
   const theme = useTheme();
@@ -17,10 +19,10 @@ const Page = () => {
               icon={<Icons.Search size={16} aria-label="Search" color={theme.palette.accents_5} />}
               placeholder="Search..."
             />
-            <Button auto type="secondary" marginLeft={1}>
+            <Button auto type="secondary">
               New Project
             </Button>
-            <Button iconRight={<Icons.UserPlus size={16} aria-label="Add User" />} marginLeft={1} px={0} width="48px" />
+            <Button iconRight={<Icons.UserPlus size={16} aria-label="Add User" />} />
           </div>
           <Grid.Container gap={2} marginTop={1} justify="flex-start">
             <Grid xs={24} sm={12} md={8}>
@@ -94,6 +96,9 @@ const Page = () => {
         .actions-stack {
           display: flex;
           width: 100%;
+        }
+        .actions-stack :global(button) {
+          margin-left: 16px;
         }
         .actions-stack :global(.input-wrapper) {
           background-color: ${theme.palette.background};

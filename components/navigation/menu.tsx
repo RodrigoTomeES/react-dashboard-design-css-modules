@@ -1,9 +1,11 @@
 import React from 'react';
-import { Avatar, Button, useTheme, Popover } from '@geist-ui/react';
+import { useTheme } from '@geist-ui/react';
 import * as Icons from 'react-feather';
-import Submenu from '@/components/navigation/submenu';
-import UserSettings from '@/components/navigation/user-settings';
+
 import { usePrefers } from '@/lib/use-prefers';
+import Avatar from '@/components/avatar';
+import Submenu from '@/components/navigation/submenu';
+import Button from '@/components/button/button';
 
 const Menu: React.FC = () => {
   const theme = useTheme();
@@ -23,11 +25,9 @@ const Menu: React.FC = () => {
           >
             {theme.type === 'dark' ? <Icons.Sun size={16} /> : <Icons.Moon size={16} />}
           </Button>
-          <Popover content={<UserSettings />} placement="bottomEnd" portalClassName="user-settings__popover">
-            <button className="user-settings__button">
-              <Avatar text="OA" />
-            </button>
-          </Popover>
+          <button className="user-settings__button">
+            <Avatar text="OA" />
+          </button>
         </div>
       </nav>
       <Submenu />

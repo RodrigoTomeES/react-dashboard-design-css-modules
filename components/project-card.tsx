@@ -1,6 +1,9 @@
 import React from 'react';
-import { Avatar, Card, useTheme } from '@geist-ui/react';
+import { useTheme } from '@geist-ui/react';
+
 import GitHubIcon from '@/components/icons/github';
+import Avatar from '@/components/avatar';
+import Card from '@/components/card/index';
 
 interface Props {
   projectId: string;
@@ -25,9 +28,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectId, productionHostname
           <div className="project-title__wrapper">
             <Avatar
               src={`https://raw.githubusercontent.com/vercel/vercel/main/packages/frameworks/logos/${framework}.svg`}
-              height={1.25}
-              width={1.25}
-              marginRight={0.75}
               className="project-icon"
             />
             <div className="project-title__content">
@@ -87,6 +87,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectId, productionHostname
           background: #fff;
           border-radius: 50%;
           border: ${theme.type === 'dark' ? `1px solid ${theme.palette.foreground}` : 'none'};
+          margin-right: calc(0.75 * 16px);
         }
         .project-git-commit,
         .project-git-commit-error {

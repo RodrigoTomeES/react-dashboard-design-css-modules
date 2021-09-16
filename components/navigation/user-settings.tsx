@@ -1,5 +1,5 @@
 import React from 'react';
-import { Popover, Link } from '@geist-ui/react';
+import { Popover } from '@geist-ui/react';
 
 const UserSettings: React.FC = () => (
   <>
@@ -7,15 +7,20 @@ const UserSettings: React.FC = () => (
       <span>User Settings</span>
     </Popover.Item>
     <Popover.Item>
-      <Link href="#">Teams</Link>
+      <a href="#">Teams</a>
     </Popover.Item>
     <Popover.Item>
-      <Link href="https://github.com/RodrigoTomeES/react-dashboard-design-css-modules/">GitHub</Link>
+      <a href="https://github.com/RodrigoTomeES/react-dashboard-design-css-modules/">GitHub</a>
     </Popover.Item>
     <Popover.Item line />
     <Popover.Item>
-      <Link href="#">Logout</Link>
+      <a href="#">Logout</a>
     </Popover.Item>
+    <style jsx>{`
+      a {
+        color: inherit;
+      }
+    `}</style>
   </>
 );
 
