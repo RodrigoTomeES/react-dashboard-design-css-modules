@@ -1,6 +1,6 @@
 import React from 'react';
-import { useTheme } from '@geist-ui/react';
 
+import { usePrefers } from '@/lib/use-prefers';
 import GitHubIcon from '@/components/icons/github';
 import Avatar from '@/components/avatar';
 import Card from '@/components/card/index';
@@ -19,7 +19,7 @@ interface Props {
 export type ProjectCardProps = Props;
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ projectId, productionHostname, updatedAt, git, framework }) => {
-  const theme = useTheme();
+  const { themeType } = usePrefers();
 
   return (
     <>
@@ -34,28 +34,28 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectId, productionHostname
               <p style={{ fontWeight: 500, lineHeight: '1.5rem', margin: 0 }}>
                 {projectId}
               </p>
-              <p style={{ color: theme.palette.accents_6, lineHeight: '1.25rem', margin: 0, fontSize: '0.875rem' }}>
+              <p style={{ color: 'var(--theme-palette-accents-6)', lineHeight: '1.25rem', margin: 0, fontSize: '0.875rem' }}>
                 {productionHostname || `${projectId}.vercel.app`}
               </p>
             </div>
           </div>
           {git ? (
             <div className="project-git-commit">
-              <p style={{ color: theme.palette.accents_6, fontWeight: 500, margin: 0 }}>
+              <p style={{ color: 'var(--theme-palette-accents-6)', fontWeight: 500, margin: 0 }}>
                 {git?.commitMessage}
               </p>
             </div>
           ) : (
             <div className="project-git-commit-error">No Git Repository connected.</div>
           )}
-          <p style={{ color: theme.palette.accents_5, marginBottom: 0, fontSize: '0.875rem' }}>
+          <p style={{ color: 'var(--theme-palette-accents-5)', marginBottom: 0, fontSize: '0.875rem' }}>
             {updatedAt} ago
             {git && (
               <>
                 {' '}
                 via
                 <GitHubIcon
-                  color={theme.palette.foreground}
+                  color={'var(--theme-palette-foreground)'}
                   height="1rem"
                   width="1rem"
                   strokeWidth={2}
@@ -71,11 +71,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectId, productionHostname
           width: 100%;
         }
         .project__wrapper :global(.project__card) {
-          box-shadow: ${theme.type === 'dark' ? theme.expressiveness.shadowSmall : '0px 2px 4px rgba(0,0,0,0.1)'};
+          box-shadow: ${themeType === 'dark' ? 'var(--theme-expressiveness-shadowSmall)' : '0px 2px 4px rgba(0,0,0,0.1)'};
         }
         .project__wrapper :global(.project__card):hover {
-          box-shadow: ${theme.type === 'dark'
-            ? `0 0 0 1px ${theme.palette.foreground}`
+          box-shadow: ${themeType === 'dark'
+            ? `0 0 0 1px var(--theme-palette-foreground)`
             : '0px 4px 8px rgba(0,0,0,0.12)'};
         }
         .project-title__wrapper {
@@ -86,7 +86,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectId, productionHostname
         .project-title__wrapper :global(.project-icon) {
           background: #fff;
           border-radius: 50%;
-          border: ${theme.type === 'dark' ? `1px solid ${theme.palette.foreground}` : 'none'};
+          border: ${themeType === 'dark' ? `1px solid var(--theme-palette-foreground)` : 'none'};
           margin-right: calc(0.75 * 16px);
         }
         .project-git-commit,
@@ -101,9 +101,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectId, productionHostname
         .project-git-commit-error {
           padding: 0 16px;
           border-radius: 5px;
-          background: ${theme.palette.accents_1};
-          border: 1px solid ${theme.palette.border};
-          color: ${theme.palette.accents_5};
+          background: var(--theme-palette-accents-1);
+          border: 1px solid var(--theme-palette-border);
+          color: var(--theme-palette-accents-5);
         }
       `}</style>
     </>

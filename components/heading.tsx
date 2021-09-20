@@ -1,6 +1,5 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { useTheme } from '@geist-ui/react';
 import * as Icons from 'react-feather';
 
 import Avatar from '@/components/avatar';
@@ -13,8 +12,6 @@ interface Props {
 export type HeadingProps = Props;
 
 const Heading: React.FC<HeadingProps> = ({ user }) => {
-  const theme = useTheme();
-
   return (
     <>
       <div className="heading__wrapper">
@@ -52,7 +49,7 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
       </div>
       <style jsx>{`
         .heading__wrapper {
-          border-bottom: 1px solid ${theme.palette.border};
+          border-bottom: 1px solid var(--theme-palette-border);
         }
         .heading {
           display: flex;
@@ -84,8 +81,8 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
           line-height: 1;
         }
         .heading__name :global(.headding__user-role) {
-          background: ${theme.palette.accents_1};
-          border: 1px solid ${theme.palette.accents_2};
+          background: var(--theme-palette-accents-1);
+          border: 1px solid var(--theme-palette-accents-2);
           border-radius: 1rem;
           padding: 0.175rem 0.5rem;
           height: unset;
@@ -116,7 +113,7 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
           color: inherit;
         }
         .heading__integration :global(.heading__integration-title) {
-          color: ${theme.palette.accents_5} !important;
+          color: var(--theme-palette-accents-5) !important;
           font-size: 0.75rem;
           font-weight: 500;
           text-transform: uppercase;

@@ -1,9 +1,6 @@
 import React from 'react';
-import { useTheme } from '@geist-ui/react';
 
 const Footer: React.FC = () => {
-  const theme = useTheme();
-
   return (
     <>
       <footer>
@@ -15,7 +12,7 @@ const Footer: React.FC = () => {
       </footer>
       <style jsx>{`
         footer {
-          border-top: 1px solid ${theme.palette.border};
+          border-top: 1px solid var(--theme-palette-border);
           padding: 4pt 16pt;
           text-align: center;
         }

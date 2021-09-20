@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
-import { GeistProvider } from '@geist-ui/react';
 
 import { PrefersContext, themes, ThemeType } from '@/lib/use-prefers';
 import Menu from '@/components/navigation/menu';
 import Footer from '@/components/footer';
 import CssBaseline from '@/components/css-baseline';
+
+import '@/assets/sass/styles.scss';
 
 const DashboardApp = ({ Component, pageProps }: AppProps) => {
   const [themeType, setThemeType] = useState<ThemeType>('dark');
@@ -17,11 +18,13 @@ const DashboardApp = ({ Component, pageProps }: AppProps) => {
 
     const theme = window.localStorage.getItem('theme') as ThemeType;
     if (themes.includes(theme)) setThemeType(theme);
+    document.documentElement.setAttribute('data-theme', theme);
   }, []);
 
   const switchTheme = useCallback((theme: ThemeType) => {
     setThemeType(theme);
     if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
   }, []);
 
   return (
@@ -38,14 +41,12 @@ const DashboardApp = ({ Component, pageProps }: AppProps) => {
           rel="stylesheet"
         />
       </Head>
-      <GeistProvider themeType={themeType}>
-        <CssBaseline />
-        <PrefersContext.Provider value={{ themeType, switchTheme }}>
-          <Menu />
-          <Component {...pageProps} />
-          <Footer />
-        </PrefersContext.Provider>
-      </GeistProvider>
+      <CssBaseline />
+      <PrefersContext.Provider value={{ themeType, switchTheme }}>
+        <Menu />
+        <Component {...pageProps} />
+        <Footer />
+      </PrefersContext.Provider>
     </>
   );
 };

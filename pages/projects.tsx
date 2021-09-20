@@ -1,13 +1,11 @@
 import React from 'react';
-import { Grid, Input, useTheme } from '@geist-ui/react';
+import { Grid, Input } from '@geist-ui/react';
 import * as Icons from 'react-feather';
 
 import ProjectCard from '@/components/project-card';
 import Button from '@/components/button/button';
 
 const Page = () => {
-  const theme = useTheme();
-
   return (
     <>
       <div className="page__wrapper">
@@ -16,7 +14,7 @@ const Page = () => {
             <Input
               scale={1.25}
               width="100%"
-              icon={<Icons.Search size={16} aria-label="Search" color={theme.palette.accents_5} />}
+              icon={<Icons.Search size={16} aria-label="Search" color={'var(--theme-palette-accents-5)'} />}
               placeholder="Search..."
             />
             <Button auto type="secondary">
@@ -80,7 +78,7 @@ const Page = () => {
       </div>
       <style jsx>{`
         .page__wrapper {
-          background-color: ${theme.palette.accents_1};
+          background-color: var(--theme-palette-accents-1);
           min-height: calc(100vh - 172px);
         }
         .page__content {
@@ -101,7 +99,7 @@ const Page = () => {
           margin-left: 16px;
         }
         .actions-stack :global(.input-wrapper) {
-          background-color: ${theme.palette.background};
+          background-color: var(--theme-palette-background);
         }
         .actions-stack :global(input) {
           font-size: 14px;

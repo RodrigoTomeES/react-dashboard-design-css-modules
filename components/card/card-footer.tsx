@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from '@geist-ui/react';
 
 interface Props {
   disableAutoMargin?: boolean;
@@ -20,8 +19,6 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
   disableAutoMargin,
   ...props
 }: CardFooterProps & typeof defaultProps) => {
-  const theme = useTheme();
-
   return (
     <footer
       className={`${disableAutoMargin ? '' : 'auto-margin'} ${className}`}
@@ -36,9 +33,9 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
           color: inherit;
           background-color: inherit;
           font-size: calc(0.875 * 16px);
-          border-top: 1px solid ${theme.palette.border};
-          border-bottom-left-radius: ${theme.layout.radius};
-          border-bottom-right-radius: ${theme.layout.radius};
+          border-top: 1px solid var(--theme-palette-border);
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
           min-height: calc(3.3 * 16px);
           width: auto;
           height: auto;
@@ -48,7 +45,7 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
         .auto-margin :global(*) {
           margin-top: 0;
           margin-bottom: 0;
-          margin-right: ${theme.layout.gapQuarter};
+          margin-right: 4pt;
         }
       `}</style>
     </footer>

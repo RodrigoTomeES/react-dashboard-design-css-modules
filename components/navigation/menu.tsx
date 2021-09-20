@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from '@geist-ui/react';
 import * as Icons from 'react-feather';
 
 import { usePrefers } from '@/lib/use-prefers';
@@ -8,7 +7,6 @@ import Submenu from '@/components/navigation/submenu';
 import Button from '@/components/button/button';
 
 const Menu: React.FC = () => {
-  const theme = useTheme();
   const prefers = usePrefers();
 
   return (
@@ -21,9 +19,9 @@ const Menu: React.FC = () => {
             className="theme-button"
             auto
             type="abort"
-            onClick={() => prefers.switchTheme(theme.type === 'dark' ? 'light' : 'dark')}
+            onClick={() => prefers.switchTheme(prefers.themeType === 'dark' ? 'light' : 'dark')}
           >
-            {theme.type === 'dark' ? <Icons.Sun size={16} /> : <Icons.Moon size={16} />}
+            {prefers.themeType === 'dark' ? <Icons.Sun size={16} /> : <Icons.Moon size={16} />}
           </Button>
           <button className="user-settings__button">
             <Avatar text="OA" />
@@ -40,7 +38,7 @@ const Menu: React.FC = () => {
           max-width: 100%;
           margin: 0 auto;
           padding: 0 16pt;
-          background-color: ${theme.palette.background};
+          background-color: var(--theme-palette-background);
           font-size: 16px;
           height: 54px;
           box-sizing: border-box;

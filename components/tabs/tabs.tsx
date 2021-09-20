@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useTheme } from '@geist-ui/react';
 
 import { TabsHeaderItem, TabsConfig, TabsContext } from './tabs-context';
 
@@ -28,7 +27,6 @@ const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
   className,
   ...props
 }: React.PropsWithChildren<TabsProps> & typeof defaultProps) => {
-  const theme = useTheme();
   const [selfValue, setSelfValue] = useState<string | undefined>(userCustomInitialValue);
   const [tabs, setTabs] = useState<Array<TabsHeaderItem>>([]);
 
@@ -100,7 +98,7 @@ const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
             display: flex;
             flex-wrap: nowrap;
             align-items: center;
-            border-bottom: 1px solid ${theme.palette.border};
+            border-bottom: 1px solid 5px;
           }
           header::-webkit-scrollbar {
             display: none;

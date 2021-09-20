@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from '@geist-ui/react';
 
 import Avatar from '@/components/avatar';
 
@@ -13,7 +12,6 @@ interface Props {
 export type ActivityEventProps = Props;
 
 const ActivityEvent: React.FC<ActivityEventProps> = ({ username, avatar, createdAt, children }) => {
-  const theme = useTheme();
 
   return (
     <>
@@ -28,7 +26,7 @@ const ActivityEvent: React.FC<ActivityEventProps> = ({ username, avatar, created
           align-items: center;
           font-size: 0.875rem;
           padding: 8pt 0;
-          border-bottom: 1px solid ${theme.palette.border};
+          border-bottom: 1px solid var(--theme-palette-border);
         }
         .activity-event :global(.activity-event__avatar) {
           width: 2rem;
@@ -40,7 +38,7 @@ const ActivityEvent: React.FC<ActivityEventProps> = ({ username, avatar, created
           margin: 0;
         }
         .activity-event :global(.activity-event__created-at) {
-          color: ${theme.palette.accents_4};
+          color: var(--theme-palette-accents-4);
           margin: 0 0 0 auto;
           padding-left: 8pt;
           text-align: right;

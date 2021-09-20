@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useTheme } from '@geist-ui/react';
 
+import { usePrefers } from '@/lib/use-prefers';
 import Tabs from '@/components/tabs/index';
 
 const Submenu: React.FC = () => {
-  const theme = useTheme();
+  const { themeType } = usePrefers();
   const router = useRouter();
   const [sticky, setSticky] = useState(false);
 
@@ -37,7 +37,7 @@ const Submenu: React.FC = () => {
           height: 48px;
           position: relative;
           overflow: hidden;
-          box-shadow: inset 0 -1px ${theme.palette.border};
+          box-shadow: inset 0 -1px var(--theme-palette-border);
         }
         .submenu_sticky {
           transition: box-shadow 0.2s ease;
@@ -48,9 +48,9 @@ const Submenu: React.FC = () => {
           top: 0;
           right: 0;
           left: 0;
-          background: ${theme.palette.background};
-          box-shadow: ${theme.type === 'dark'
-            ? `inset 0 -1px ${theme.palette.border}`
+          background: var(--theme-palette-background);
+          box-shadow: ${themeType === 'dark'
+            ? `inset 0 -1px var(--theme-palette-border)`
             : 'rgba(0, 0, 0, 0.1) 0 0 15px 0'};
         }
         .submenu__inner {
@@ -84,14 +84,14 @@ const Submenu: React.FC = () => {
           height: calc(100% - 2px);
           padding-top: 0;
           padding-bottom: 0;
-          color: ${theme.palette.accents_5};
+          color: var(--theme-palette-accents-5);
           font-size: 0.875rem;
         }
         .submenu__inner :global(.tab):hover {
-          color: ${theme.palette.foreground};
+          color: var(--theme-palette-foreground);
         }
         .submenu__inner :global(.active) {
-          color: ${theme.palette.foreground};
+          color: var(--theme-palette-foreground);
         }
       `}</style>
     </>

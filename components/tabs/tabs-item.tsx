@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo } from 'react';
-import { useTheme } from '@geist-ui/react';
 
 import { TabsInternalCellProps, useTabsContext } from './tabs-context';
 
@@ -22,7 +21,6 @@ const TabsItem: React.FC<React.PropsWithChildren<TabsItemProps>> = ({
   label,
   disabled
 }: React.PropsWithChildren<TabsItemProps> & typeof defaultProps) => {
-  const theme = useTheme();
   const { register, currentValue } = useTabsContext();
   const isActive = useMemo(() => currentValue === value, [currentValue, value]);
 
@@ -51,7 +49,7 @@ const TabsItem: React.FC<React.PropsWithChildren<TabsItemProps>> = ({
             transition: all 200ms ease;
             text-transform: capitalize;
             white-space: nowrap;
-            color: ${theme.palette.accents_6};
+            color: var(--theme-palette-accents-6);
             user-select: none;
             display: flex;
             align-items: center;
@@ -79,7 +77,7 @@ const TabsItem: React.FC<React.PropsWithChildren<TabsItemProps>> = ({
           }
 
           .tab.active:after {
-            background-color: ${theme.palette.foreground};
+            background-color: var(--theme-palette-foreground);
             transform: scaleX(1);
           }
 
@@ -93,11 +91,11 @@ const TabsItem: React.FC<React.PropsWithChildren<TabsItemProps>> = ({
           }
 
           .tab.active {
-            color: ${theme.palette.foreground};
+            color: var(--theme-palette-foreground);
           }
 
           .tab.disabled {
-            color: ${theme.palette.accents_3};
+            color: var(--theme-palette-accents-3);
             cursor: not-allowed;
           }
         `}</style>

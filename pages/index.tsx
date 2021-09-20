@@ -1,14 +1,11 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { useTheme } from '@geist-ui/react';
 
 import Heading from '@/components/heading';
 import EventListItem from '@/components/activity-event';
 import OverviewProject from '@/components/overview-project';
 
 const Page = () => {
-  const theme = useTheme();
-
   return (
     <>
       <Heading user={{ name: 'Ofek Ashery', role: 'Admin', github: 'ofekashery' }} />
@@ -57,7 +54,7 @@ const Page = () => {
       </div>
       <style jsx>{`
         .page__wrapper {
-          background-color: ${theme.palette.accents_1};
+          background-color: var(--theme-palette-accents-1);
         }
         .page__content {
           display: flex;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from '@geist-ui/react';
 import * as Icons from 'react-feather';
 
 import Dot from '@/components/dot';
@@ -15,8 +14,6 @@ interface Props {
 export type OverviewProjectProps = Props;
 
 const OverviewProject: React.FC<OverviewProjectProps> = ({ projectId, createdAt, repo }) => {
-  const theme = useTheme();
-
   return (
     <>
       <div className="project__wrapper">
@@ -91,9 +88,9 @@ const OverviewProject: React.FC<OverviewProjectProps> = ({ projectId, createdAt,
           text-overflow: ellipsis;
         }
         .project__wrapper :global(.project__environment-tag) {
-          color: ${theme.palette.foreground};
-          background: ${theme.palette.accents_1};
-          border: 1px solid ${theme.palette.accents_2};
+          color: var(--theme-palette-foreground);
+          background: var(--theme-palette-accents-1);
+          border: 1px solid var(--theme-palette-accents-2);
           border-radius: 1rem;
           padding: 2px 6px;
           height: unset;
@@ -102,7 +99,7 @@ const OverviewProject: React.FC<OverviewProjectProps> = ({ projectId, createdAt,
           margin-left: 8pt;
         }
         .project__wrapper :global(.project__created-at) {
-          color: ${theme.palette.accents_4};
+          color: var(--theme-palette-accents-4);
           font-size: 0.875rem;
           text-align: right;
           margin: 0 0 0 8pt;

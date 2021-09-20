@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from '@geist-ui/react';
 
 interface Props {
   src?: string;
@@ -32,9 +31,8 @@ const Avatar: React.FC<AvatarProps> = ({
   className,
   ...props
 }: AvatarProps & typeof defaultProps) => {
-  const theme = useTheme();
   const showText = !src;
-  const radius = isSquare ? theme.layout.radius : '50%';
+  const radius = isSquare ? '5px' : '50%';
 
   return (
     <span className={`avatar ${className}`}>
@@ -52,10 +50,10 @@ const Avatar: React.FC<AvatarProps> = ({
           display: inline-block;
           position: relative;
           overflow: hidden;
-          border: 1px solid ${theme.palette.accents_2};
+          border: 1px solid var(--theme-palette-accents-2);
           border-radius: ${radius};
           vertical-align: top;
-          background-color: ${theme.palette.background};
+          background-color: var(--theme-palette-background);
           box-sizing: border-box;
           width: calc(1.75 * 16px);
           height: calc(1.75 * 16px);

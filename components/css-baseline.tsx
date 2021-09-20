@@ -1,22 +1,19 @@
 import React from 'react';
-import { useTheme } from '@geist-ui/react';
 
 const CssBaseline: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
-  const theme = useTheme()
-
   return (
     <>
       {children}
       <style global jsx>{`
         html,
         body {
-          background-color: ${theme.palette.background};
-          color: ${theme.palette.foreground};
+          background-color: var(--theme-palette-background);
+          color: var(--theme-palette-foreground);
         }
 
         html {
           font-size: 16px;
-          --geist-icons-background: ${theme.palette.background};
+          --geist-icons-background: var(--theme-palette-background);
         }
 
         body {
@@ -30,7 +27,7 @@ const CssBaseline: React.FC<React.PropsWithChildren<unknown>> = ({ children }) =
           min-height: 100%;
           position: relative;
           overflow-x: hidden;
-          font-family: ${theme.font.sans};
+          font-family: var(--theme-font-sans);
         }
 
         #__next {
@@ -50,7 +47,7 @@ const CssBaseline: React.FC<React.PropsWithChildren<unknown>> = ({ children }) =
           font-weight: 400;
           color: inherit;
           letter-spacing: -0.005625em;
-          font-family: ${theme.font.sans};
+          font-family: var(--theme-font-sans);
         }
 
         p {
@@ -86,21 +83,20 @@ const CssBaseline: React.FC<React.PropsWithChildren<unknown>> = ({ children }) =
           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
           -webkit-box-align: center;
           align-items: center;
-          color: ${theme.palette.link};
-          text-decoration: ${theme.expressiveness.linkStyle};
+          color: var(--theme-palette-link);
+          text-decoration: none;
         }
 
         a:hover {
-          text-decoration: ${theme.expressiveness.linkHoverStyle};
+          text-decoration: none;
         }
 
         ul,
         ol {
           padding: 0;
           list-style-type: none;
-          margin: ${theme.layout.gapHalf} ${theme.layout.gapHalf} ${theme.layout.gapHalf}
-            ${theme.layout.gap};
-          color: ${theme.palette.foreground};
+          margin: 8pt 8pt 8pt 16pt;
+          color: var(--theme-palette-foreground);
         }
 
         ol {
@@ -116,7 +112,7 @@ const CssBaseline: React.FC<React.PropsWithChildren<unknown>> = ({ children }) =
         ul li:before {
           content: '–';
           display: inline-block;
-          color: ${theme.palette.accents_4};
+          color: var(--theme-palette-accents-4);
           position: absolute;
           margin-left: -0.9375em;
         }
@@ -187,8 +183,8 @@ const CssBaseline: React.FC<React.PropsWithChildren<unknown>> = ({ children }) =
         }
 
         code {
-          color: ${theme.palette.code};
-          font-family: ${theme.font.mono};
+          color: var(--theme-palette-code);
+          font-family: var(--theme-font-mono);
           font-size: 0.9em;
           white-space: pre-wrap;
         }
@@ -199,11 +195,11 @@ const CssBaseline: React.FC<React.PropsWithChildren<unknown>> = ({ children }) =
         }
 
         pre {
-          padding: calc(${theme.layout.gap} * 0.75) ${theme.layout.gap};
-          margin: ${theme.layout.gap} 0;
-          border: 1px solid ${theme.palette.accents_2};
-          border-radius: ${theme.layout.radius};
-          font-family: ${theme.font.mono};
+          padding: calc(16pt * 0.75) 16pt;
+          margin: 16pt 0;
+          border: 1px solid var(--theme-palette-accents-2);
+          border-radius: 5px;
+          font-family: var(--theme-font-mono);
           white-space: pre;
           overflow: auto;
           line-height: 1.5;
@@ -213,7 +209,7 @@ const CssBaseline: React.FC<React.PropsWithChildren<unknown>> = ({ children }) =
         }
 
         pre code {
-          color: ${theme.palette.foreground};
+          color: var(--theme-palette-foreground);
           font-size: 0.8125rem;
           line-height: 1.25em;
           white-space: pre;
@@ -236,11 +232,11 @@ const CssBaseline: React.FC<React.PropsWithChildren<unknown>> = ({ children }) =
         }
 
         hr {
-          border-color: ${theme.palette.accents_2};
+          border-color: var(--theme-palette-accents-2);
         }
 
         details {
-          background-color: ${theme.palette.accents_1};
+          background-color: var(--theme-palette-accents-1);
           border: none;
         }
 
@@ -274,12 +270,12 @@ const CssBaseline: React.FC<React.PropsWithChildren<unknown>> = ({ children }) =
         }
 
         blockquote {
-          padding: calc(0.667 * ${theme.layout.gap}) ${theme.layout.gap};
-          color: ${theme.palette.accents_5};
-          background-color: ${theme.palette.accents_1};
-          border-radius: ${theme.layout.radius};
+          padding: calc(0.667 * 16pt) 16pt;
+          color: var(--theme-palette-accents-5);
+          background-color: var(--theme-palette-accents-1);
+          border-radius: 5px;
           margin: 1.5em 0;
-          border: 1px solid ${theme.palette.border};
+          border: 1px solid var(--theme-palette-border);
         }
 
         blockquote :global(*:first-child) {
@@ -291,8 +287,8 @@ const CssBaseline: React.FC<React.PropsWithChildren<unknown>> = ({ children }) =
         }
 
         ::selection {
-          background-color: ${theme.palette.selection};
-          color: ${theme.palette.foreground};
+          background-color: var(--theme-palette-selection);
+          color: var(--theme-palette-foreground);
         }
       `}</style>
     </>
