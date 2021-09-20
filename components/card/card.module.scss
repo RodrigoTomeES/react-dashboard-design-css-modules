@@ -1,0 +1,36 @@
+.card {
+  background: var(--theme-palette-background);
+  transition: all 0.2s ease;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: var(--theme-palette-foreground);
+  background-color: var(--theme-palette-background);
+  border: 1px solid transparent;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+
+  &--shadow {
+    box-shadow: var(--theme-expressiveness-shadowSmall);
+
+    &:hover {
+      box-shadow: var(--theme-expressiveness-shadowMedium);
+    }
+  }
+
+  &--hoverable {
+    &:hover {
+      box-shadow: var(--theme-expressiveness-shadowSmall);
+    }
+  }
+
+  & :global(img) {
+    width: 100%;
+  }
+  
+  & :global(.image) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}

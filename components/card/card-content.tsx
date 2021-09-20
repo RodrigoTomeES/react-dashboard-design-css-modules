@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './card-content.module.scss';
+
 interface Props {
   className?: string;
 };
@@ -16,24 +18,8 @@ const CardContent: React.FC<React.PropsWithChildren<CardContentProps>> = ({
   children,
   ...props
 }: CardContentProps & typeof defaultProps) => (
-  <div className={`content ${className}`} {...props}>
+  <div className={`${styles.content} ${className}`} {...props}>
     {children}
-    <style jsx>{`
-      .content {
-        width: 100%;
-        height: auto;
-        padding: 16px;
-        margin: 0;
-      }
-
-      .content > :global(p:first-child) {
-        margin-top: 0;
-      }
-
-      .content > :global(p:last-child) {
-        margin-bottom: 0;
-      }
-    `}</style>
   </div>
 );
 

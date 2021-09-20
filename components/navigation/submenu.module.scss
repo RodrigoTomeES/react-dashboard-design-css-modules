@@ -1,0 +1,46 @@
+.submenu__wrapper {
+  height: 48px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 -1px var(--theme-palette-border);
+}
+
+.submenu_sticky {
+  transition: box-shadow 0.2s ease;
+  position: fixed;
+  z-index: 1100;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: var(--theme-palette-background);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 15px 0;
+}
+
+[data-theme="dark"] .submenu_sticky {
+  box-shadow: inset 0 -1px var(--theme-palette-border);
+}
+
+.submenu__inner {
+  display: flex;
+  width: 782pt;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 16pt;
+  height: 48px;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  overflow-x: auto;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & :global(.content) {
+    display: none;
+  }
+}

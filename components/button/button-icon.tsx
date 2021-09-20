@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './button-icon.module.scss';
+
 interface Props {
   isRight?: boolean;
   isSingle?: boolean;
@@ -22,41 +24,10 @@ const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
   ...props
 }: ButtonIconProps & typeof defaultProps) => (
   <span
-    className={`icon ${isRight ? 'right' : ''} ${
-      isSingle ? 'single' : ''
-    } ${className}`}
+    className={`${styles.icon} ${isRight && styles.right} ${
+      isSingle && styles.single} ${className}`}
     {...props}>
     {children}
-    <style jsx>{`
-      .icon {
-        position: absolute;
-        left: var(--button-icon-padding);
-        right: auto;
-        top: 50%;
-        transform: translateY(-50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: var(--button-color);
-        z-index: 1;
-      }
-
-      .right {
-        right: var(--button-icon-padding);
-        left: auto;
-      }
-
-      .icon :global(svg) {
-        background: transparent;
-        height: calc(var(--button-height) / 2.35);
-        width: calc(var(--button-height) / 2.35);
-      }
-
-      .single {
-        position: static;
-        transform: none;
-      }
-    `}</style>
   </span>
 )
 

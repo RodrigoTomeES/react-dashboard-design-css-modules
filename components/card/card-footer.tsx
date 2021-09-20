@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './card-footer.module.scss';
+
 interface Props {
   disableAutoMargin?: boolean;
   className?: string;
@@ -21,33 +23,9 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
 }: CardFooterProps & typeof defaultProps) => {
   return (
     <footer
-      className={`${disableAutoMargin ? '' : 'auto-margin'} ${className}`}
+      className={`${styles.footer} ${!disableAutoMargin && styles['auto-margin']} ${className}`}
       {...props}>
       {children}
-      <style jsx>{`
-        footer {
-          padding: calc(0.66 * 16px) calc(1.31 * 16px);
-          display: flex;
-          align-items: center;
-          overflow: hidden;
-          color: inherit;
-          background-color: inherit;
-          font-size: calc(0.875 * 16px);
-          border-top: 1px solid var(--theme-palette-border);
-          border-bottom-left-radius: 5px;
-          border-bottom-right-radius: 5px;
-          min-height: calc(3.3 * 16px);
-          width: auto;
-          height: auto;
-          margin: 0;
-        }
-
-        .auto-margin :global(*) {
-          margin-top: 0;
-          margin-bottom: 0;
-          margin-right: 4pt;
-        }
-      `}</style>
     </footer>
   )
 }

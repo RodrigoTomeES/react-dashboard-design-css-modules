@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 
 import { TabsHeaderItem, TabsConfig, TabsContext } from './tabs-context';
 
+import styles from './tabs.module.scss';
+
 interface Props {
   initialValue?: string;
   value?: string;
@@ -65,51 +67,15 @@ const Tabs: React.FC<React.PropsWithChildren<TabsProps>> = ({
 
   return (
     <TabsContext.Provider value={initialValue}>
-      <div className={`tabs ${className}`} {...props}>
-        <header>
-          <div className={`scroll-container ${hideDivider ? 'hide-divider' : ''}`}>
+      <div className={`${styles.tabs} ${className}`} {...props}>
+        <header className={styles.header}>
+          <div className={`${styles['scroll-container']} ${hideDivider && styles['hide-divider']}`}>
             {tabs.map(({ cell: Cell, value }) => (
               <Cell key={value} value={selfValue} onClick={clickHandler} />
             ))}
           </div>
         </header>
-        <div className="content">{children}</div>
-        <style jsx>{`
-          .tabs {
-            font-size: 16px;
-            width: initial;
-            height: auto;
-            padding: 0;
-            margin: 0;
-          }
-          header {
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-            overflow-y: hidden;
-            overflow-x: scroll;
-            scrollbar-width: none;
-            position: relative;
-          }
-          .scroll-container {
-            width: 100%;
-            height: 100%;
-            flex: 1;
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-            border-bottom: 1px solid 5px;
-          }
-          header::-webkit-scrollbar {
-            display: none;
-          }
-          .hide-divider {
-            border-color: transparent;
-          }
-          .content {
-            padding-top: 0.625rem;
-          }
-        `}</style>
+        <div className={styles.content}>{children}</div>
       </div>
     </TabsContext.Provider>
   )

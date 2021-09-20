@@ -1,0 +1,28 @@
+.icon {
+  position: absolute;
+  left: var(--button-icon-padding);
+  right: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--button-color);
+  z-index: 1;
+
+  &:global(svg) {
+    background: transparent;
+    height: calc(var(--button-height) / 2.35);
+    width: calc(var(--button-height) / 2.35);
+  }
+}
+
+.right {
+  right: var(--button-icon-padding);
+  left: auto;
+}
+
+.single {
+  position: static;
+  transform: none;
+}

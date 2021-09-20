@@ -1,0 +1,25 @@
+.activity-event {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  padding: 8pt 0;
+  border-bottom: 1px solid var(--theme-palette-border);
+
+  &__avatar {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 8pt;
+  }
+
+  &__message {
+    flex: 1;
+    margin: 0;
+  }
+
+  &__created-at {
+    color: var(--theme-palette-accents-4);
+    margin: 0 0 0 auto;
+    padding-left: 8pt;
+    text-align: right;
+  }
+}

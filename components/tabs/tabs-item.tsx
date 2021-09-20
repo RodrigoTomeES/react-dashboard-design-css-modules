@@ -2,6 +2,8 @@ import React, { useEffect, useMemo } from 'react';
 
 import { TabsInternalCellProps, useTabsContext } from './tabs-context';
 
+import styles from './tabs-item.module.scss';
+
 interface Props {
   label: string | React.ReactNode;
   value: string;
@@ -34,71 +36,12 @@ const TabsItem: React.FC<React.PropsWithChildren<TabsItemProps>> = ({
     };
     return (
       <div
-        className={`tab ${value === currentValue ? 'active' : ''} ${
-          disabled ? 'disabled' : ''
-        }`}
+        className={`${styles.tab} ${value === currentValue && styles.active} ${
+          disabled && styles.disabled}`}
         role="button"
         key={value}
         onClick={clickHandler}>
         {label}
-        <style jsx>{`
-          .tab {
-            box-sizing: border-box;
-            cursor: pointer;
-            outline: 0;
-            transition: all 200ms ease;
-            text-transform: capitalize;
-            white-space: nowrap;
-            color: var(--theme-palette-accents-6);
-            user-select: none;
-            display: flex;
-            align-items: center;
-            position: relative;
-            font-size: 16px;
-            line-height: 1.25em;
-            width: auto;
-            height: auto;
-            padding: calc(0.334 * 16px) calc(0.218 * 16px) calc(0.334 * 16px) calc(0.218 * 16px);
-            margin: 0 calc(0.5334 * 16px) 0 calc(0.5334 * 16px);
-          }
-
-          .tab:after {
-            position: absolute;
-            content: '';
-            bottom: -1px;
-            left: 0;
-            right: 0;
-            width: 100%;
-            height: 2px;
-            border-radius: 4px;
-            transform: scaleX(0.75);
-            background-color: transparent;
-            transition: all 200ms ease;
-          }
-
-          .tab.active:after {
-            background-color: var(--theme-palette-foreground);
-            transform: scaleX(1);
-          }
-
-          .tab :global(svg) {
-            max-height: 1em;
-            margin-right: 5px;
-          }
-
-          .tab:first-of-type {
-            margin-left: 0;
-          }
-
-          .tab.active {
-            color: var(--theme-palette-foreground);
-          }
-
-          .tab.disabled {
-            color: var(--theme-palette-accents-3);
-            cursor: not-allowed;
-          }
-        `}</style>
       </div>
     );
   };

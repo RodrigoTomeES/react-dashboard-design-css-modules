@@ -2,14 +2,16 @@ import React from 'react';
 import { Grid, Input } from '@geist-ui/react';
 import * as Icons from 'react-feather';
 
-import ProjectCard from '@/components/project-card';
+import ProjectCard from '@/components/project-card/project-card';
 import Button from '@/components/button/button';
+
+import styles from './projects.module.scss';
 
 const Page = () => (
   <>
-    <div className="page__wrapper">
-      <div className="page__content">
-        <div className="actions-stack">
+    <div className={styles.page__wrapper}>
+      <div className={styles.page__content}>
+        <div className={styles['actions-stack']}>
           <Input
             scale={1.25}
             width="100%"
@@ -75,35 +77,6 @@ const Page = () => (
         </Grid.Container>
       </div>
     </div>
-    <style jsx>{`
-      .page__wrapper {
-        background-color: var(--theme-palette-accents-1);
-        min-height: calc(100vh - 172px);
-      }
-      .page__content {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 782pt;
-        max-width: 100%;
-        margin: 0 auto;
-        padding: calc(16px * 2) 16pt;
-        box-sizing: border-box;
-      }
-      .actions-stack {
-        display: flex;
-        width: 100%;
-      }
-      .actions-stack :global(button) {
-        margin-left: 16px;
-      }
-      .actions-stack :global(.input-wrapper) {
-        background-color: var(--theme-palette-background);
-      }
-      .actions-stack :global(input) {
-        font-size: 14px;
-      }
-    `}</style>
   </>
 );
 

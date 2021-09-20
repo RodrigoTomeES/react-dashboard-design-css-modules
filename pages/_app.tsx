@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app';
 
 import { PrefersContext, themes, ThemeType } from '@/lib/use-prefers';
 import Menu from '@/components/navigation/menu';
-import Footer from '@/components/footer';
+import Footer from '@/components/footer/footer';
 import CssBaseline from '@/components/css-baseline';
 
 import '@/assets/sass/styles.scss';
