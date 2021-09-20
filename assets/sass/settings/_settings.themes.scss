@@ -1,0 +1,43 @@
+[data-theme="dark"] {
+  --theme-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --theme-font-mono: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+
+  --theme-expressiveness-shadowSmall: 0 0 0 1px #333;
+  --theme-expressiveness-shadowMedium: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+  --theme-palette-selection: #f81ce5;
+  --theme-palette-code: #79ffe1;
+  --theme-palette-link: #3291ff;
+  --theme-palette-border: #333;
+  --theme-palette-background: #000;
+  --theme-palette-foreground: #fff;
+  --theme-palette-success: #0070f3;
+  --theme-palette-accents-1: #111;
+  --theme-palette-accents-2: #333;
+  --theme-palette-accents-3: #444;
+  --theme-palette-accents-4: #666;
+  --theme-palette-accents-5: #888;
+  --theme-palette-accents-6: #999;
+}
+
+[data-theme="light"] {
+  --theme-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --theme-font-mono: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+
+  --theme-expressiveness-shadowSmall: 0 5px 10px rgba(0, 0, 0, 0.12);
+  --theme-expressiveness-shadowMedium: 0 0 0 1px #333;
+
+  --theme-palette-selection: #79ffe1;
+  --theme-palette-code: #f81ce5;
+  --theme-palette-link: #0070f3;
+  --theme-palette-border: #eaeaea;
+  --theme-palette-background: #fff;
+  --theme-palette-foreground: #000;
+  --theme-palette-success: #0070f3;
+  --theme-palette-accents-1: #fafafa;
+  --theme-palette-accents-2: #eaeaea;
+  --theme-palette-accents-3: #999;
+  --theme-palette-accents-4: #888;
+  --theme-palette-accents-5: #666;
+  --theme-palette-accents-6: #444;
+}
