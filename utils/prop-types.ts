@@ -11,5 +11,4 @@ const cardTypes = tuple(
 );
 
 export type ButtonTypes = typeof buttonTypes[number];
-
 export type CardTypes = typeof cardTypes[number];
