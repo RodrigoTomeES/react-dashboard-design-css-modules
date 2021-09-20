@@ -16,23 +16,21 @@ const Submenu: React.FC = () => {
   }, [setSticky]);
 
   return (
-    <>
-      <nav className={styles.submenu__wrapper}>
-        <div className={`submenu ${sticky && styles.submenu_sticky}`}>
-          <div className={styles.submenu__inner}>
-            <Tabs value={router.asPath} onChange={(route) => router.push(route)}>
-              <Tabs.Item label="Overview" value="/" />
-              <Tabs.Item label="Projects" value="/projects" />
-              <Tabs.Item label="Integrations" value="/integrations" />
-              <Tabs.Item label="Activity" value="/activity" />
-              <Tabs.Item label="Domains" value="/domains" />
-              <Tabs.Item label="Usage" value="/usage" />
-              <Tabs.Item label="Settings" value="/settings" />
-            </Tabs>
-          </div>
+    <nav className={styles.submenu__wrapper}>
+      <div className={`submenu ${sticky && styles.submenu_sticky}`}>
+        <div className={styles.submenu__inner}>
+          <Tabs value={router.asPath} onChange={(route) => router.push(route)}>
+            <Tabs.Item label="Overview" value="/" />
+            <Tabs.Item label="Projects" value="/projects" />
+            <Tabs.Item label="Integrations" value="/integrations" />
+            <Tabs.Item label="Activity" value="/activity" />
+            <Tabs.Item label="Domains" value="/domains" />
+            <Tabs.Item label="Usage" value="/usage" />
+            <Tabs.Item label="Settings" value="/settings" />
+          </Tabs>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 };
 

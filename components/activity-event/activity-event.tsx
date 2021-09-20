@@ -14,13 +14,11 @@ interface Props {
 export type ActivityEventProps = Props;
 
 const ActivityEvent: React.FC<ActivityEventProps> = ({ username, avatar, createdAt, children }) => (
-  <>
-    <div className={styles['activity-event']}>
-      <Avatar className={styles['activity-event__avatar']} src={avatar} alt={`${username} Avatar`} />
-      <p className={styles['activity-event__message']}>{children}</p>
-      <p className={styles['activity-event__created-at']}>{createdAt}</p>
-    </div>
-  </>
+  <div className={styles['activity-event']}>
+    <Avatar className={styles['activity-event__avatar']} src={avatar} alt={`${username} Avatar`} />
+    <p className={styles['activity-event__message']}>{children}</p>
+    <p className={styles['activity-event__created-at']}>{createdAt}</p>
+  </div>
 );
 
 export default ActivityEvent;
