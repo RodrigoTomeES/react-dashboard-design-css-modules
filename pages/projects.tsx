@@ -1,9 +1,11 @@
 import React from 'react';
-import { Grid, Input, useTheme } from '@geist-ui/react';
+import { useTheme } from '@geist-ui/react';
 import * as Icons from 'react-feather';
 
 import ProjectCard from '@/components/project-card';
 import Button from '@/components/button/button';
+import Input from '@/components/input/input';
+import Grid from '@/components/grid/index';
 
 const Page = () => {
   const theme = useTheme();
@@ -14,7 +16,6 @@ const Page = () => {
         <div className="page__content">
           <div className="actions-stack">
             <Input
-              scale={1.25}
               width="100%"
               icon={<Icons.Search size={16} aria-label="Search" color={theme.palette.accents_5} />}
               placeholder="Search..."
@@ -24,7 +25,7 @@ const Page = () => {
             </Button>
             <Button iconRight={<Icons.UserPlus size={16} aria-label="Add User" />} />
           </div>
-          <Grid.Container gap={2} marginTop={1} justify="flex-start">
+          <Grid.Container gap={2} justify="flex-start">
             <Grid xs={24} sm={12} md={8}>
               <ProjectCard
                 projectId="react-dashboard-design"
@@ -110,4 +111,5 @@ const Page = () => {
     </>
   );
 };
+
 export default Page;
